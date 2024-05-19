@@ -1,0 +1,53 @@
+<style>
+    body{
+        background-color:#638CB8;
+    }
+    .delete-box{
+        width: 300px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 3px;
+        padding:20px;
+        box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+        text-align:center;
+    }
+
+    .delete{
+        text-align: center;
+        color:red;
+        padding:20px;
+        font-size: 20px;
+        
+    }
+    input{
+        background-color: red;
+        color: black;
+        margin: 20px;
+    }
+    .cancel{
+        font-size: 25px;
+        margin: 5px
+        color: green;
+        
+    }
+    a{
+        text-decoration:none;
+        color: green;
+    }
+</style>    
+
+<div class="delete-box">
+
+<div class="delete">
+        <p> Are you sure you want to delete "{{item}}?"</p>
+</div>
+       <div class = "cancel">
+        <a   href="{% url 'list'%}">Cancel</a>
+       </div>
+
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="submit" value="Delete" name="confirm">
+        </form>
+</div>
